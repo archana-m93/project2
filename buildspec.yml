@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Checking AWS identity"
+      - aws sts get-caller-identity
+      - echo "Updating kubeconfig"
+      - aws eks update-kubeconfig --region ap-south-1 --name project2-eks
+      - echo "Checking kubectl"
+      - kubectl version --client
+
+  build:
+    commands:
+      - echo "Deploying application to EKS"
+      - kubectl apply -f deployment.yaml
+      - kubectl apply -f service.yaml
+
+  post_build:
+    commands:
+      - echo "Checking EKS nodes"
+      - kubectl get nodes
+      - echo "Checking pods"
+      - kubectl get pods
+      - echo "Checking service"
+      - kubectl get service
