@@ -1,0 +1,190 @@
+No older events at this moment. 
+Retry
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:10:49.967837 Running on CodeBuild On-demand
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:10:49.967851 Waiting for agent ping
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:10:51.732754 Waiting for DOWNLOAD_SOURCE
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:00.750538 Phase is DOWNLOAD_SOURCE
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:00.751970 CODEBUILD_SRC_DIR=/codebuild/output/src692912014/src/github.com/archana-m93/project2
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:00.752497 YAML location is /codebuild/output/src692912014/src/github.com/archana-m93/project2/buildspec.yml
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:00.754290 Setting HTTP client timeout to higher timeout for Github and GitHub Enterprise sources
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:00.754378 Processing environment variables
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:01.982060 No runtime version selected in buildspec.
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:02.005090 Moving to directory /codebuild/output/src692912014/src/github.com/archana-m93/project2
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:02.005113 Cache is not defined in the buildspec
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:02.530631 Skip cache due to: no paths specified to be cached
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:02.530887 Registering with agent
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:03.059726 Phases found in YAML: 3
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:03.059749 PRE_BUILD: 6 commands
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:03.059753 BUILD: 3 commands
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:03.059756 POST_BUILD: 6 commands
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:03.060048 Phase complete: DOWNLOAD_SOURCE State: SUCCEEDED
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:03.060062 Phase context status code: Message:
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:04.124387 Entering phase INSTALL
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:04.639933 Phase complete: INSTALL State: SUCCEEDED
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:04.639957 Phase context status code: Message:
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:04.677422 Entering phase PRE_BUILD
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:05.176019 Running command echo "Checking AWS identity"
+2026-08-24T08:41:05.286+05:30
+Checking AWS identity
+2026-08-24T08:41:05.286+05:30
+2026-08-24T08:41:05.286+05:30
+[Container] 2026/08/24 03:11:05.181679 Running command aws sts get-caller-identity
+2026-08-24T08:41:23.336+05:30
+{
+2026-08-24T08:41:23.336+05:30
+"UserId": "AROA3NIAKYSENO42VE5YB:AWSCodeBuild-8934aed5-e3c8-49e4-b391-8326042f1810",
+2026-08-24T08:41:23.336+05:30
+"Account": "784369108104",
+2026-08-24T08:41:23.336+05:30
+"Arn": "arn:aws:sts::784369108104:assumed-role/codebuild-project2_eks-deploy-service-role/AWSCodeBuild-8934aed5-e3c8-49e4-b391-8326042f1810"
+2026-08-24T08:41:23.336+05:30
+}
+2026-08-24T08:41:23.336+05:30
+2026-08-24T08:41:23.336+05:30
+[Container] 2026/08/24 03:11:21.656236 Running command echo "Updating kubeconfig"
+2026-08-24T08:41:23.336+05:30
+Updating kubeconfig
+2026-08-24T08:41:23.336+05:30
+2026-08-24T08:41:23.336+05:30
+[Container] 2026/08/24 03:11:21.662133 Running command aws eks update-kubeconfig --region ap-south-1 --name project2-eks
+2026-08-24T08:41:23.336+05:30
+Added new context arn:aws:eks:ap-south-1:784369108104:cluster/project2-eks to /root/.kube/config
+2026-08-24T08:41:23.336+05:30
+2026-08-24T08:41:23.336+05:30
+[Container] 2026/08/24 03:11:22.515226 Running command echo "Checking kubectl"
+2026-08-24T08:41:23.336+05:30
+Checking kubectl
+2026-08-24T08:41:23.336+05:30
+2026-08-24T08:41:23.336+05:30
+[Container] 2026/08/24 03:11:22.521015 Running command kubectl version --client
+2026-08-24T08:41:27.363+05:30
+Client Version: v1.35.2-eks-f69f56f
+2026-08-24T08:41:27.363+05:30
+Kustomize Version: v5.7.1
+2026-08-24T08:41:27.363+05:30
+2026-08-24T08:41:27.363+05:30
+[Container] 2026/08/24 03:11:26.019050 Phase complete: PRE_BUILD State: SUCCEEDED
+2026-08-24T08:41:27.363+05:30
+[Container] 2026/08/24 03:11:26.019071 Phase context status code: Message:
+2026-08-24T08:41:27.363+05:30
+[Container] 2026/08/24 03:11:26.055802 Entering phase BUILD
+2026-08-24T08:41:27.363+05:30
+[Container] 2026/08/24 03:11:26.056800 Running command echo "Deploying application to EKS"
+2026-08-24T08:41:27.363+05:30
+Deploying application to EKS
+2026-08-24T08:41:27.363+05:30
+2026-08-24T08:41:27.363+05:30
+[Container] 2026/08/24 03:11:26.066729 Running command kubectl apply -f deployment.yaml
+2026-08-24T08:41:27.363+05:30
+deployment.apps/project2-deployment unchanged
+2026-08-24T08:41:27.363+05:30
+2026-08-24T08:41:27.363+05:30
+[Container] 2026/08/24 03:11:26.852646 Running command kubectl apply -f service.yaml
+2026-08-24T08:41:29.376+05:30
+service/project2-service unchanged
+2026-08-24T08:41:29.376+05:30
+2026-08-24T08:41:29.376+05:30
+[Container] 2026/08/24 03:11:27.723871 Phase complete: BUILD State: SUCCEEDED
+2026-08-24T08:41:29.376+05:30
+[Container] 2026/08/24 03:11:27.723891 Phase context status code: Message:
+2026-08-24T08:41:29.376+05:30
+[Container] 2026/08/24 03:11:27.758658 Entering phase POST_BUILD
+2026-08-24T08:41:29.376+05:30
+[Container] 2026/08/24 03:11:27.759645 Running command echo "Checking EKS nodes"
+2026-08-24T08:41:29.376+05:30
+Checking EKS nodes
+2026-08-24T08:41:29.376+05:30
+2026-08-24T08:41:29.376+05:30
+[Container] 2026/08/24 03:11:27.767895 Running command kubectl get nodes
+2026-08-24T08:41:29.376+05:30
+NAME STATUS ROLES AGE VERSION
+2026-08-24T08:41:29.376+05:30
+ip-192-168-6-62.ap-south-1.compute.internal Ready <none> 13h v1.34.9-eks-b3f9404
+2026-08-24T08:41:29.376+05:30
+ip-192-168-92-167.ap-south-1.compute.internal Ready <none> 13h v1.34.9-eks-b3f9404
+2026-08-24T08:41:29.376+05:30
+2026-08-24T08:41:29.376+05:30
+[Container] 2026/08/24 03:11:28.472807 Running command echo "Checking pods"
+2026-08-24T08:41:29.376+05:30
+Checking pods
+2026-08-24T08:41:29.376+05:30
+2026-08-24T08:41:29.376+05:30
+[Container] 2026/08/24 03:11:28.480747 Running command kubectl get pods
+2026-08-24T08:41:29.376+05:30
+NAME READY STATUS RESTARTS AGE
+2026-08-24T08:41:29.376+05:30
+project2-deployment-7999bb8bff-7w7nk 1/1 Running 0 13h
+2026-08-24T08:41:29.376+05:30
+project2-deployment-7999bb8bff-nggkj 1/1 Running 0 13h
+2026-08-24T08:41:29.376+05:30
+2026-08-24T08:41:29.376+05:30
+[Container] 2026/08/24 03:11:29.177514 Running command echo "Checking service"
+2026-08-24T08:41:29.376+05:30
+Checking service
+2026-08-24T08:41:29.376+05:30
+2026-08-24T08:41:29.376+05:30
+[Container] 2026/08/24 03:11:29.185426 Running command kubectl get service
+2026-08-24T08:41:30.608+05:30
+NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE
+2026-08-24T08:41:30.608+05:30
+kubernetes ClusterIP 10.100.0.1 <none> 443/TCP 3d8h
+2026-08-24T08:41:30.608+05:30
+project2-service LoadBalancer 10.100.208.113 ab6c6f27d8db54c77b29d0b169af6cad-277473209.ap-south-1.elb.amazonaws.com 80:30424/TCP 13h
+2026-08-24T08:41:30.608+05:30
+2026-08-24T08:41:30.608+05:30
+[Container] 2026/08/24 03:11:29.884481 Phase complete: POST_BUILD State: SUCCEEDED
+2026-08-24T08:41:30.608+05:30
+[Container] 2026/08/24 03:11:29.884506 Phase context status code: Message:
+2026-08-24T08:41:30.608+05:30
+[Container] 2026/08/24 03:11:29.934170 Set report auto-discover timeout to 5 seconds
+2026-08-24T08:41:30.608+05:30
+[Container] 2026/08/24 03:11:29.934206 Expanding base directory path: .
+2026-08-24T08:41:30.608+05:30
+[Container] 2026/08/24 03:11:29.937616 Assembling file list
+2026-08-24T08:41:30.608+05:30
+[Container] 2026/08/24 03:11:29.937629 Expanding .
+2026-08-24T08:41:30.608+05:30
+[Container] 2026/08/24 03:11:29.941113 Expanding file paths for base directory .
+2026-08-24T08:41:30.608+05:30
+[Container] 2026/08/24 03:11:29.941126 Assembling file list
+2026-08-24T08:41:30.608+05:30
+[Container] 2026/08/24 03:11:29.941129 Expanding **/*
+2026-08-24T08:41:30.608+05:30
+[Container] 2026/08/24 03:11:29.945470 No matching auto-discover report paths found
+2026-08-24T08:41:30.608+05:30
+[Container] 2026/08/24 03:11:29.945493 Report auto-discover file discovery took 0.011323 seconds
+2026-08-24T08:41:30.608+05:30
+[Container] 2026/08/24 03:11:29.945503 Phase complete: UPLOAD_ARTIFACTS State: SUCCEEDED
+2026-08-24T08:41:30.608+05:30
+[Container] 2026/08/24 03:11:29.945509 Phase context status code:  Message: 
+
+[Container] 2026/08/24 03:11:29.945509 Phase context status code: Message:
+No newer events at this moment. 
+Auto retry paused.
+ 
+Resume
+ 

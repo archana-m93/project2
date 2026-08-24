@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
         - name: project2-container
-          image: archanamr/project2:v1
+          image: archanamr/project2:v2
           ports:
             - containerPort: 80
