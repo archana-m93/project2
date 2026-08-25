@@ -1,0 +1,99 @@
+
+[Container] 2026/08/25 00:58:05.824876 Running on CodeBuild On-demand
+[Container] 2026/08/25 00:58:05.824886 Waiting for agent ping
+[Container] 2026/08/25 00:58:06.061287 Waiting for DOWNLOAD_SOURCE
+[Container] 2026/08/25 00:58:07.430168 Phase is DOWNLOAD_SOURCE
+[Container] 2026/08/25 00:58:07.431268 CODEBUILD_SRC_DIR=/codebuild/output/src4225293562/src
+[Container] 2026/08/25 00:58:07.431750 YAML location is /codebuild/output/src4225293562/src/buildspec.yml
+[Container] 2026/08/25 00:58:07.433460 Setting HTTP client timeout to higher timeout for S3 source
+[Container] 2026/08/25 00:58:07.433553 Processing environment variables
+[Container] 2026/08/25 00:58:07.693976 No runtime version selected in buildspec.
+[Container] 2026/08/25 00:58:07.718539 Moving to directory /codebuild/output/src4225293562/src
+[Container] 2026/08/25 00:58:07.718576 Cache is not defined in the buildspec
+[Container] 2026/08/25 00:58:07.759141 Skip cache due to: no paths specified to be cached
+[Container] 2026/08/25 00:58:07.759362 Registering with agent
+[Container] 2026/08/25 00:58:07.795455 Phases found in YAML: 3
+[Container] 2026/08/25 00:58:07.795479  PRE_BUILD: 6 commands
+[Container] 2026/08/25 00:58:07.795485  BUILD: 3 commands
+[Container] 2026/08/25 00:58:07.795488  POST_BUILD: 6 commands
+[Container] 2026/08/25 00:58:07.795725 Phase complete: DOWNLOAD_SOURCE State: SUCCEEDED
+[Container] 2026/08/25 00:58:07.795736 Phase context status code:  Message: 
+[Container] 2026/08/25 00:58:07.898242 Entering phase INSTALL
+[Container] 2026/08/25 00:58:07.934809 Phase complete: INSTALL State: SUCCEEDED
+[Container] 2026/08/25 00:58:07.934830 Phase context status code:  Message: 
+[Container] 2026/08/25 00:58:07.971316 Entering phase PRE_BUILD
+[Container] 2026/08/25 00:58:08.007643 Running command echo "Checking AWS identity"
+Checking AWS identity
+
+[Container] 2026/08/25 00:58:08.013659 Running command aws sts get-caller-identity
+{
+    "UserId": "AROA3NIAKYSENO42VE5YB:AWSCodeBuild-d562e26e-5d6f-4ba4-b83d-a901077420ea",
+    "Account": "784369108104",
+    "Arn": "arn:aws:sts::784369108104:assumed-role/codebuild-project2_eks-deploy-service-role/AWSCodeBuild-d562e26e-5d6f-4ba4-b83d-a901077420ea"
+}
+
+[Container] 2026/08/25 00:58:24.696101 Running command echo "Updating kubeconfig"
+Updating kubeconfig
+
+[Container] 2026/08/25 00:58:24.701927 Running command aws eks update-kubeconfig --region ap-south-1 --name project2-eks
+Added new context arn:aws:eks:ap-south-1:784369108104:cluster/project2-eks to /root/.kube/config
+
+[Container] 2026/08/25 00:58:25.556292 Running command echo "Checking kubectl"
+Checking kubectl
+
+[Container] 2026/08/25 00:58:25.562264 Running command kubectl version --client
+Client Version: v1.35.2-eks-f69f56f
+Kustomize Version: v5.7.1
+
+[Container] 2026/08/25 00:58:29.791367 Phase complete: PRE_BUILD State: SUCCEEDED
+[Container] 2026/08/25 00:58:29.791382 Phase context status code:  Message: 
+[Container] 2026/08/25 00:58:29.829679 Entering phase BUILD
+[Container] 2026/08/25 00:58:29.830694 Running command echo "Deploying application to EKS"
+Deploying application to EKS
+
+[Container] 2026/08/25 00:58:29.836633 Running command kubectl apply -f deployment.yaml
+deployment.apps/project2-deployment unchanged
+
+[Container] 2026/08/25 00:58:30.698147 Running command kubectl apply -f service.yaml
+service/project2-service unchanged
+
+[Container] 2026/08/25 00:58:31.542431 Phase complete: BUILD State: SUCCEEDED
+[Container] 2026/08/25 00:58:31.542449 Phase context status code:  Message: 
+[Container] 2026/08/25 00:58:31.581588 Entering phase POST_BUILD
+[Container] 2026/08/25 00:58:31.582643 Running command echo "Checking EKS nodes"
+Checking EKS nodes
+
+[Container] 2026/08/25 00:58:31.588960 Running command kubectl get nodes
+NAME                                            STATUS   ROLES    AGE   VERSION
+ip-192-168-6-62.ap-south-1.compute.internal     Ready    <none>   35h   v1.34.9-eks-b3f9404
+ip-192-168-92-167.ap-south-1.compute.internal   Ready    <none>   35h   v1.34.9-eks-b3f9404
+
+[Container] 2026/08/25 00:58:32.311586 Running command echo "Checking pods"
+Checking pods
+
+[Container] 2026/08/25 00:58:32.317559 Running command kubectl get pods
+NAME                                   READY   STATUS    RESTARTS   AGE
+project2-deployment-55678c9856-4dt4v   1/1     Running   0          61m
+project2-deployment-55678c9856-4l5r8   1/1     Running   0          28m
+
+[Container] 2026/08/25 00:58:33.021471 Running command echo "Checking service"
+Checking service
+
+[Container] 2026/08/25 00:58:33.027356 Running command kubectl get service
+NAME               TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)        AGE
+kubernetes         ClusterIP      10.100.0.1       <none>                                                                    443/TCP        4d5h
+project2-service   LoadBalancer   10.100.208.113   ab6c6f27d8db54c77b29d0b169af6cad-277473209.ap-south-1.elb.amazonaws.com   80:30424/TCP   34h
+
+[Container] 2026/08/25 00:58:33.741404 Phase complete: POST_BUILD State: SUCCEEDED
+[Container] 2026/08/25 00:58:33.741421 Phase context status code:  Message: 
+[Container] 2026/08/25 00:58:33.794202 Set report auto-discover timeout to 5 seconds
+[Container] 2026/08/25 00:58:33.794254 Expanding base directory path:  .
+[Container] 2026/08/25 00:58:33.797352 Assembling file list
+[Container] 2026/08/25 00:58:33.797367 Expanding .
+[Container] 2026/08/25 00:58:33.800525 Expanding file paths for base directory .
+[Container] 2026/08/25 00:58:33.800539 Assembling file list
+[Container] 2026/08/25 00:58:33.800542 Expanding **/*
+[Container] 2026/08/25 00:58:33.803957 No matching auto-discover report paths found
+[Container] 2026/08/25 00:58:33.803974 Report auto-discover file discovery took 0.009772 seconds
+[Container] 2026/08/25 00:58:33.803984 Phase complete: UPLOAD_ARTIFACTS State: SUCCEEDED
+[Container] 2026/08/25 00:58:33.803994 Phase context status code:  Message:
