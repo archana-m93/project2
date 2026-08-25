@@ -1,11 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
-
 metadata:
   name: project2-deployment
 
 spec:
   replicas: 2
+
+  strategy:
+    type: Recreate
 
   selector:
     matchLabels:
